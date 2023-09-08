@@ -148,7 +148,7 @@ public class PorPrecio extends javax.swing.JInternalFrame {
 // TODO add your handling code here:
        // private void jTprecio1KeyReleased(java.awt.event.KeyEvent evt)
     private void jTPrecio1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTPrecio1KeyReleased
-        //{
+//        {
 //            String p1S = jTPrecio1.getText();
 //             int p1=Integer.parseInt(p1S);
 //            // JOptionPane.showMessageDialog(this, p1);
@@ -156,7 +156,7 @@ public class PorPrecio extends javax.swing.JInternalFrame {
 //            String p2S = jTPrecio2.getText();
 //             int p2=Integer.parseInt(p2S);
 //             
-//             //JOptionPane.showMessageDialog(this, p2);
+//             JOptionPane.showMessageDialog(this, p2);
 //            
 //             for(Producto prod:MenuGeneral.productos){ 
 //            if(prod.getPrecio()<p1){
@@ -167,16 +167,35 @@ public class PorPrecio extends javax.swing.JInternalFrame {
 //                            prod.getDescripcion(),
 //                            prod.getPrecio(),
 //                            prod.getStock(),
-        //   });
-           
-       // }
+//           });
+//           
+//        }
        
        
 
         
     }//GEN-LAST:event_jTPrecio1KeyReleased
 
-   
+   private void actualizarTabla() {
+    tableModel.setRowCount(0); // Limpiar la tabla
+
+    try {
+        double precio1 = Double.parseDouble(jTPrecio1.getText());
+        double precio2 = Double.parseDouble(jTPrecio2.getText());
+        Iterable<Double> precios = null;
+
+        for (Double precio : precios) {
+            if (precio >= precio1 && precio <= precio2) {
+                tableModel.addRow(new Object[]{precio});
+            }
+        }
+    } catch (NumberFormatException e) {
+        // Manejo de error si los campos no contienen números válidos
+        JOptionPane.showMessageDialog(this, "Ingrese valores numéricos válidos en los campos de precio.");
+    }
+}
+
+
         
     
         
@@ -205,4 +224,18 @@ public class PorPrecio extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTPrecio2;
     private javax.swing.JTable jTable;
     // End of variables declaration//GEN-END:variables
+
+    private static class tableModel {
+
+        private static void setRowCount(int i) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        private static void addRow(Object[] object) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public tableModel() {
+        }
+    }
 }

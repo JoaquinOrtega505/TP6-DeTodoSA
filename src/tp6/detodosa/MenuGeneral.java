@@ -184,6 +184,11 @@ public class MenuGeneral extends javax.swing.JFrame {
             new MenuGeneral().setVisible(true);
         });
     }
+    private void cargarProductos(){
+    productos.add(new Producto(10,"Azucar X 1Kg",180.75,5,Categoria.COMESTIBLE));
+    productos.add(new Producto(12,"Jabon Tocador X 3",200.20,7,Categoria.PERFUMERIA));
+    productos.add(new Producto(13,"Lavandina 1 Lts",121.40,17,Categoria.LIMPIEZA));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
@@ -196,3 +201,5 @@ public class MenuGeneral extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiRubro;
     // End of variables declaration//GEN-END:variables
 }
+
+
